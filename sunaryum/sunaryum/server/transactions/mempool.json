@@ -1,0 +1,42 @@
+[
+  {
+    "txid": "709b55bd3da0f5a838125bd0ee20c5bfdd7caba173912d4281cae816b79a201b",
+    "inputs": [
+      {
+        "address": "973133d1f9dc16e2a11a354befbfe4f87b8117fa",
+        "txid": "aeebad4a796fcc2e15dc4c6061b45ed9b373f26adfc798ca7d2d8cc58182718e"
+      }
+    ],
+    "outputs": [
+      {
+        "address": "973133d1f9dc16e2a11a354befbfe4f87b8117fa",
+        "amount": 30
+      },
+      {
+        "address": "other",
+        "amount": 70
+      }
+    ],
+    "timestamp": "2025-05-16T11:03:31.021678-03:00"
+  },
+  {
+    "txid": "709b55bd3da0f5a838125bd0ee20c5bfdd7caba173912d4281cae816b79a201b",
+    "inputs": [
+      {
+        "address": "42ea5c1aab88c1471140951fca1a44713c79403a",
+        "txid": "aeebad4a796fcc2e15dc4c6061b45ed9b373f26adfc798ca7d2d8cc58182718e"
+      }
+    ],
+    "outputs": [
+      {
+        "address": "42ea5c1aab88c1471140951fca1a44713c79403a",
+        "amount": 30
+      },
+      {
+        "address": "other",
+        "amount": 70
+      }
+    ],
+    "timestamp": "2025-05-16T11:03:46.463486-03:00"
+  }
+]

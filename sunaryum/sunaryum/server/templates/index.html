@@ -1,0 +1,41 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Blockchain DApp</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blockchain Wallet</h1>
+        
+        <div class="section">
+            <h2>Criar Nova Carteira</h2>
+            <button onclick="createWallet()">Gerar Nova Carteira</button>
+            <div id="wallet-info"></div>
+        </div>
+
+        <div class="section">
+            <h2>Criar Transação</h2>
+            <form id="transaction-form">
+                <input type="text" id="from" placeholder="Endereço de origem">
+                <input type="text" id="to" placeholder="Endereço de destino">
+                <input type="number" id="amount" placeholder="Quantidade">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Mineração</h2>
+            <button onclick="startMining()">Iniciar Mineração</button>
+        </div>
+
+        <div class="section">
+            <h2>Mempool (Transações Pendentes)</h2>
+            <div id="mempool"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
