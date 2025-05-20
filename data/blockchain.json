@@ -1,0 +1,99 @@
+[
+  {
+    "index": 0,
+    "timestamp": "2025-05-20T13:02:30.907825-03:00",
+    "consolidated_energy": 0,
+    "transactions": [
+      {
+        "txid": "genesis-tx-1",
+        "inputs": [],
+        "outputs": [
+          {
+            "address": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+            "amount": 1000.0,
+            "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8"
+          }
+        ],
+        "type": "genesis",
+        "date": "2025-05-20T13:02:30.907812-03:00",
+        "status": "confirmed"
+      }
+    ],
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "node_count": 0,
+    "hash": "cb452c7199afd157162b2cb4c218389f0145e709d79b535c03b286466846e810"
+  },
+  {
+    "index": 1,
+    "timestamp": "2025-05-20T16:24:55.036394-03:00",
+    "consolidated_energy": 0,
+    "transactions": [
+      {
+        "version": 1,
+        "sender": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+        "recipient": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+        "amount": 1.0,
+        "timestamp": "2025-05-20T16:05:41.263875",
+        "inputs": [
+          {
+            "txid": "genesis-tx-1",
+            "index": 0,
+            "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8",
+            "signature": "444172a7d6098bc442d76c249b697bf5f55978744d5a24b9b7c28be0387a47b9622a6f6caa4fbc62a5f05f840bd9c2613b199f4a285e62c3ace9ff865f20d97c"
+          }
+        ],
+        "outputs": [
+          {
+            "address": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+            "amount": 1.0,
+            "public_key": ""
+          },
+          {
+            "address": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+            "amount": 999.0,
+            "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8"
+          }
+        ],
+        "signatures": [
+          "444172a7d6098bc442d76c249b697bf5f55978744d5a24b9b7c28be0387a47b9622a6f6caa4fbc62a5f05f840bd9c2613b199f4a285e62c3ace9ff865f20d97c"
+        ],
+        "txid": "8b9a04ea0290b09a1d442a7441ae015003372c88be356d2515a1954f5bf676a7"
+      },
+      {
+        "version": 1,
+        "sender": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+        "recipient": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+        "amount": 2.0,
+        "timestamp": "2025-05-20T16:05:50.304643",
+        "inputs": [
+          {
+            "txid": "8b9a04ea0290b09a1d442a7441ae015003372c88be356d2515a1954f5bf676a7",
+            "index": 1,
+            "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8",
+            "signature": "ae5c391496a9a4b1f07384d5df013dd920951f820f5f798934c2ab31725f67ba672319ea9ec0a9c9a0174887c862c0894e98eac32cd11854e7f96e61820e26f0"
+          }
+        ],
+        "outputs": [
+          {
+            "address": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+            "amount": 2.0,
+            "public_key": ""
+          },
+          {
+            "address": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+            "amount": 997.0,
+            "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8"
+          }
+        ],
+        "signatures": [
+          "ae5c391496a9a4b1f07384d5df013dd920951f820f5f798934c2ab31725f67ba672319ea9ec0a9c9a0174887c862c0894e98eac32cd11854e7f96e61820e26f0"
+        ],
+        "txid": "24827ee4148158962011c0c66a1a0d82ae6c42cbced4fc7eee4d9fc2646cd8d7"
+      }
+    ],
+    "node_count": 0,
+    "previous_hash": "cb452c7199afd157162b2cb4c218389f0145e709d79b535c03b286466846e810",
+    "hash": "c4761e8789758e9b04d5249f19083039f88a26ca37a69ac6255ee826ceaf0e28",
+    "reward": 0.0
+  }
+]

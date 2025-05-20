@@ -1,0 +1,33 @@
+[
+  {
+    "version": 1,
+    "sender": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+    "recipient": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+    "amount": 1.0,
+    "timestamp": "2025-05-20T19:27:07.058091",
+    "inputs": [
+      {
+        "txid": "24827ee4148158962011c0c66a1a0d82ae6c42cbced4fc7eee4d9fc2646cd8d7",
+        "index": 1,
+        "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8",
+        "signature": "088c749a1dba50246953a1059fca4febd2d320c845dd3a32a3fc90b93bae979af5f94c5e0122e4614a48650fe24eb7a6c5d952f76a6a9b68bb1c9eb8729f54a3"
+      }
+    ],
+    "outputs": [
+      {
+        "address": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
+        "amount": 1.0,
+        "public_key": ""
+      },
+      {
+        "address": "1ef0d9d207f83073454e6ac197b331cf626c0973",
+        "amount": 996.0,
+        "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8"
+      }
+    ],
+    "signatures": [
+      "088c749a1dba50246953a1059fca4febd2d320c845dd3a32a3fc90b93bae979af5f94c5e0122e4614a48650fe24eb7a6c5d952f76a6a9b68bb1c9eb8729f54a3"
+    ],
+    "txid": "2bfcb68297d22971db59723f4f2c2b47a43f5e977568528b83c370bb11058562"
+  }
+]
