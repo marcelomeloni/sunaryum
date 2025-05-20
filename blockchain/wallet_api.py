@@ -91,49 +91,54 @@ def wallet_bp(utxo_set, mempool):
             ts = block.get('timestamp')
             for tx in block.get('transactions', []):
                 sender = tx.get('sender')
-
-                # Recebido: outputs para o address que não são do sender
-                received = sum(
-                    out['amount'] for out in tx.get('outputs', [])
-                    if out['address'] == address and sender != address
-                )
-
-                # Enviado: soma dos UTXOs referenciados pelos inputs que pertencem ao address
                 sent = 0
-                for inp in tx.get('inputs', []):
-                    utxo = blockchain.utxo_set.get_utxo(inp.get('txid'), inp.get('index'))
-                    if utxo and utxo.address == address:
-                        sent += utxo.amount  # Usar o amount do UTXO, não do input
+                received = 0
 
-                if received > 0:
-                    history.append({'txid': tx['txid'], 'type': 'received (confirmed)', 'amount': received, 'date': ts})
+                if sender == address:
+                    # Valor ENVIADO: soma dos outputs que não são para o próprio address
+                    sent = sum(
+                        out.get('amount', 0) for out in tx.get('outputs', [])
+                        if out.get('address') != address
+                    )
+                else:
+                    # Valor RECEBIDO: soma dos outputs para o address
+                    received = sum(
+                        out.get('amount', 0) for out in tx.get('outputs', [])
+                        if out.get('address') == address
+                    )
+
                 if sent > 0:
                     history.append({'txid': tx['txid'], 'type': 'sent (confirmed)', 'amount': sent, 'date': ts})
+                if received > 0:
+                    history.append({'txid': tx['txid'], 'type': 'received (confirmed)', 'amount': received, 'date': ts})
 
         # --- Transações Pendentes ---
         for tx in mempool.get_all_transactions():
             txid = tx.get('txid')
             ts = tx.get('timestamp') or tx.get('date')
             sender = tx.get('sender')
-
-            # Recebido: outputs para o address que não são do sender
-            received_pending = sum(
-                out['amount'] for out in tx.get('outputs', [])
-                if out.get('address') == address and sender != address
-            )
-
-            # Enviado: soma dos UTXOs referenciados pelos inputs que pertencem ao address
             sent_pending = 0
-            for inp in tx.get('inputs', []):
-                utxo = blockchain.utxo_set.get_utxo(inp.get('txid'), inp.get('index'))
-                if utxo and utxo.address == address:
-                    sent_pending += utxo.amount  # Usar o amount do UTXO
+            received_pending = 0
 
-            if received_pending > 0:
-                history.append({'txid': txid, 'type': 'received (pending)', 'amount': received_pending, 'date': ts})
+            if sender == address:
+                # Valor ENVIADO pendente: outputs para outros endereços
+                sent_pending = sum(
+                    out.get('amount', 0) for out in tx.get('outputs', [])
+                    if out.get('address') != address
+                )
+            else:
+                # Valor RECEBIDO pendente: outputs para o address
+                received_pending = sum(
+                    out.get('amount', 0) for out in tx.get('outputs', [])
+                    if out.get('address') == address
+                )
+
             if sent_pending > 0:
                 history.append({'txid': txid, 'type': 'sent (pending)', 'amount': sent_pending, 'date': ts})
+            if received_pending > 0:
+                history.append({'txid': txid, 'type': 'received (pending)', 'amount': received_pending, 'date': ts})
 
+        # Ordenar por data
         history.sort(key=lambda x: x['date'], reverse=True)
         return jsonify({'transactions': history})
 
