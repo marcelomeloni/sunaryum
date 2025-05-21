@@ -8,5 +8,5 @@ class ProofOfEnergy:
 
     def mint_tokens(self, validated_energy):
         """Calcula tokens baseado na energia validada (Wh para BTLF)"""
-        # 1 BTLF = 20 kWh = 72000 Wh
-        return validated_energy / 72000
+        
+        return validated_energy / 20000
