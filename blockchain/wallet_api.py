@@ -54,20 +54,23 @@ def wallet_bp(utxo_set, mempool):
             pending_received = 0
             pending_sent = 0
 
-            # calcula pendentes via UTXO
             for tx in mempool.get_all_transactions():
-                # recebimentos pendentes (outputs para este address que não são change):
+                # Ignora transações já confirmadas
+                if is_transaction_confirmed(tx['txid']):  # <--- Nova verificação
+                    continue
+
+                # Recebimentos pendentes
                 for out in tx.get('outputs', []):
                     if out.get('address') == address and tx.get('recipient') == address:
-                        pending_received += tx.get('amount', 0)
-                # envios pendentes => se este address é o sender
+                        pending_received += out.get('amount', 0)
+
+                # Envios pendentes
                 if tx.get('sender') == address:
-                    # Soma apenas outputs enviados para outros endereços
                     sent_amount = sum(
-                        out.get('amount', 0) 
+                        out.get('amount', 0)
                         for out in tx.get('outputs', [])
                         if out.get('address') != address
-                            )
+                    )
                     pending_sent += sent_amount
 
             total = confirmed_balance + pending_received - pending_sent
