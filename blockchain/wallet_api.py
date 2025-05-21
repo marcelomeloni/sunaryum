@@ -143,31 +143,3 @@ def wallet_bp(utxo_set, mempool):
         return jsonify({'transactions': history})
 
     return bp 
-
-o utxos.json esta aparentemente certo {
-  "8b9a04ea0290b09a1d442a7441ae015003372c88be356d2515a1954f5bf676a7": {
-    "0": {
-      "txid": "8b9a04ea0290b09a1d442a7441ae015003372c88be356d2515a1954f5bf676a7",
-      "index": 0,
-      "address": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
-      "amount": 1.0,
-      "public_key": ""
-    }
-  },
-  "24827ee4148158962011c0c66a1a0d82ae6c42cbced4fc7eee4d9fc2646cd8d7": {
-    "0": {
-      "txid": "24827ee4148158962011c0c66a1a0d82ae6c42cbced4fc7eee4d9fc2646cd8d7",
-      "index": 0,
-      "address": "a4361632bf219d5f56902b6b8c97daae1c380f4b",
-      "amount": 2.0,
-      "public_key": ""
-    },
-    "1": {
-      "txid": "24827ee4148158962011c0c66a1a0d82ae6c42cbced4fc7eee4d9fc2646cd8d7",
-      "index": 1,
-      "address": "1ef0d9d207f83073454e6ac197b331cf626c0973",
-      "amount": 997.0,
-      "public_key": "038f231d59aa2419510f26929b9668d2093d4ceacfe0559a0ab2c654b2faab27a8"
-    }
-  }
-}
