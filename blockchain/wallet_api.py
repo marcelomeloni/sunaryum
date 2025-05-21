@@ -63,12 +63,12 @@ def wallet_bp(utxo_set, mempool):
                 # envios pendentes => se este address é o sender
                 if tx.get('sender') == address:
                     # Soma apenas outputs enviados para outros endereços
-                sent_amount = sum(
-                    out.get('amount', 0) 
-                    for out in tx.get('outputs', [])
-                    if out.get('address') != address
+                    sent_amount = sum(
+                        out.get('amount', 0) 
+                        for out in tx.get('outputs', [])
+                        if out.get('address') != address
                             )
-                pending_sent += sent_amount
+                    pending_sent += sent_amount
 
             total = confirmed_balance + pending_received - pending_sent
             return jsonify({
