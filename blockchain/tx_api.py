@@ -19,7 +19,9 @@ def tx_bp(utxo_set, mempool, blockchain):
             if not all(field in data for field in required_fields):
                 missing = [f for f in required_fields if f not in data]
                 return jsonify({'status': 'error', 'message': f'Campos obrigatórios faltando: {", ".join(missing)}'}), 400
-
+                
+            if data['sender'] == data['recipient']:
+                return jsonify({'status': 'error', 'message': 'Remetente e destinatário não podem ser iguais'}), 400
             try:
                 amount = float(data['amount'])
                 if amount <= 0:
