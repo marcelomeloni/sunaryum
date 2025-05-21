@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask
 from argparse import ArgumentParser
 from flask_cors import CORS
 from blockchain.wallet_api import wallet_bp
@@ -11,9 +11,7 @@ from routes.node_routes import node_bp  # seu blueprint para node
 
 def create_app():
     app = Flask(__name__)
-
-    # Habilitar CORS nas rotas
-    CORS(app, resources={ 
+    CORS(app, resources={
         r"/wallet/*": {"origins": "*"},
         r"/transaction/*": {"origins": "*"},
         r"/chain/*": {"origins": "*"},
@@ -24,13 +22,6 @@ def create_app():
     def add_cors_headers(response):
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
         response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-        if request.method == 'OPTIONS':
-            # Adiciona cabeçalhos CORS para as requisições OPTIONS
-            response = Response()
-            response.headers.add('Access-Control-Allow-Origin', '*')
-            response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-            response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-            return response
         return response
 
     # ✅ Inicializa a blockchain e carrega o singleton
