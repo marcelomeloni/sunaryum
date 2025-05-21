@@ -61,8 +61,7 @@ def wallet_bp(utxo_set, mempool):
                     if out.get('address') == address and tx.get('recipient') == address:
                         pending_received += tx.get('amount', 0)
                 # envios pendentes => se este address é o sender
-                if tx.get('sender') == address:
-                    pending_sent += tx.get('amount', 0)
+              
 
             total = confirmed_balance + pending_received - pending_sent
             return jsonify({
